@@ -28,10 +28,9 @@ void main() {
   // final newUSerMoney = 50;
   // print(newUSerMoney / 19);
   int result = convertToDolar(userMoney, 12);
-
+  
   final newResult = converterStandartDolar(300, dolarIndex: 17);
   print(newResult);
-  final newResult3 = converterStandartDolar(230);
 
   print(sayHello('Ali'));
   //required kullanıldığı zaman kessin olarak tanımlanması lazımdır
