@@ -1,4 +1,17 @@
 void main() {
+  List<dynamic> users = [1, 'ali', true];
+  for (var item in users) {
+    print(item);
+  }
+
+  List<String> usersName = ['ali', 'veli', 'ahmet'];
+  usersName.contains('veli');
+  for (var item in usersName) {
+    if (item == 'veli') {
+      print('var');
+    }
+  }
+
   //benim  bir musterim var parası var mı yok mu kontrol edermisin
   final int userMoney = 0;
   controlUserMoney(userMoney, 0);
@@ -20,6 +33,7 @@ void main() {
   print(newResult);
   final newResult3 = converterStandartDolar(230);
 
+  print(sayHello('Ali'));
   //required kullanıldığı zaman kessin olarak tanımlanması lazımdır
   final newResult2 = convertToEuro(userMoney: 500, euroIndex: 30);
   print(newResult2);
@@ -48,6 +62,6 @@ int convertToEuro({required int userMoney, int euroIndex = 15}) {
   return userMoney ~/ euroIndex;
 }
 
-String sayHello() {
-  return 'Hello World!!!';
+String sayHello(String name) {
+  return 'Hello $name';
 }
