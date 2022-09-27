@@ -29,7 +29,16 @@ void main(List<String> args) {
 
 //35 tleden buyuk olanları kredi verebiliriz yaz
 //küçük olanları bye bye yaz
-  List<int> moneyCostumerNews = [100, 30, 40, 60];
+  List<int> moneyCostumerNews = [100, 30, 40, 60,-5];
 
-  
+  moneyCostumerNews.sort();//Büyükten küçüğe göre sırala
+  for (var i = 0; i < moneyCostumerNews.length; i++) {
+    if (moneyCostumerNews[i] > 35) {
+      print("Kredin hazır");
+    } else if (moneyCostumerNews[i] > 0) {
+      print('kredi veremiy ama bi bakalım');
+    } else {
+      print('bye bye');
+    }
+  }
 }
