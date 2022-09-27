@@ -18,4 +18,18 @@ void main(List<String> args) {
   newMoneys.add(4);
   newMoneys.clear();
   print(newMoneys);
+
+  //newMoneys.reversed.toList();
+
+  //100 tane musteri yap sıra ile 5 tl ekle
+  List<double> customerMoney = List.generate(100, (index) {
+    return index + 5;
+  });
+  print(customerMoney);
+
+//35 tleden buyuk olanları kredi verebiliriz yaz
+//küçük olanları bye bye yaz
+  List<int> moneyCostumerNews = [100, 30, 40, 60];
+
+  
 }
