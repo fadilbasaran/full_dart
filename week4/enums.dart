@@ -18,3 +18,9 @@ void main() {
 }
 
 enum Mouses { magic, apple, logitech, a4 }
+
+extension MausesSelectedExtansion on Mouses {
+  bool isCheckName(String name) {
+    return this.name == name;
+  }
+}
