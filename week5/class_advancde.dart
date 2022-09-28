@@ -36,6 +36,17 @@ void main(List<String> args) {
   if (money1 == money2) {
     print('oki');
   }
+
+  //Müşterinin parasına 10 tl ekle ekrana döndür,Adamın ıdisi bir artır ismini veli yap
+
+  moneyBank1.money += 10;
+  print(moneyBank1.money);
+
+  moneyBank1
+    ..money += 10
+    ..updateName('fadıl');
+
+  print(moneyBank1);
 }
 
 //Kullanıcıların parası var ama herhangi bir tip olabilir
@@ -60,13 +71,18 @@ class _User {
 
 class Bank with BankMixin {
   //Dahil etme birlikete kullanma
-  final int money;
+  int money;
   final String id;
+  String? name;
 
   Bank(this.money, this.id);
 
   operator +(Bank newBank) {
     return money + newBank.money;
+  }
+
+  void updateName(String name) {
+    this.name = name;
   }
 
   @override
@@ -84,7 +100,8 @@ class Bank with BankMixin {
   }
 }
 
-mixin BankMixin {//Birden çok senaryo varsa plihirmisiiim gibi yapılarda kullanılır.
+mixin BankMixin {
+  //Birden çok senaryo varsa plihirmisiiim gibi yapılarda kullanılır.
   void saBankaHello() {}
   void calculateMoney(int money) {
     print('money');
