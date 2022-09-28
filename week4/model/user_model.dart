@@ -28,4 +28,6 @@ class User  extends Object{
   // }
 
   bool get isEmptyId => _id.isEmpty; //Bir değerde almadığı için () kaldırdık
+  
+   
 }
