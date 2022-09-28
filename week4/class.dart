@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable, duplicate_ignore
 
 import 'model/user_model.dart';
+import 'model/user_model_2.dart';
 
 void main() {
   //Musteri adı var, parası var yasi var bla bla
@@ -47,6 +48,11 @@ void main() {
   //User user2 = User('fadıl2', 15);
 
   final users3 = User('aa', 159, age: 13, id: '12');
+  User2 newUser2 = User2('fb', 34);
+  newUser2.money = 39;
+  var value = newUser2.money = null;
+  print('User2 money: ' + value.toString());
+
   print(user1.name);
   //print(users3._id);
 
@@ -89,17 +95,5 @@ void controlCustomerAge(int value) {
     print('alışveriş yapabilirsiniz');
   } else {
     print('Alışveriş yapamazsınız');
-  }
-}
-
-class User2 {
-  final String name;
-  final int money;
-  final int? age;
-  final String? city;
-  late final String userCode;
-
-  User2(this.name, this.money, {this.age, this.city}) {
-    userCode = (city ?? 'ist') + name;
   }
 }
