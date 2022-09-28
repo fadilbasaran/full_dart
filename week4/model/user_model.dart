@@ -22,4 +22,10 @@ class User {
   bool isSpecialUser(String id) {
     return _id == id;
   }
+
+  // bool isEmptyId() {
+  //   return _id.isEmpty;
+  // }
+
+  bool get isEmptyId => _id.isEmpty; //Bir değerde almadığı için () kaldırdık
 }

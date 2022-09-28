@@ -68,6 +68,8 @@ void main() {
     users3.money -= 5;
     print('indirim yapıldı. son fiyat ${users3.money}');
   }
+
+  print('bos mu' + users3.isEmptyId.toString());
 }
 
 // ignore: body_might_complete_normally_nullable
