@@ -1,5 +1,7 @@
 // ignore_for_file: unused_local_variable, duplicate_ignore
 
+import 'model/user_model.dart';
+
 void main() {
   //Musteri adı var, parası var yasi var bla bla
 
@@ -41,11 +43,12 @@ void main() {
 
   // ignore: unused_local_variable
   int costumerMoneyX = 15;
-  User user1 = User('fadıl', 15, age: 22, city: 'batman');
+  User user1 = User('fadıl', 15, age: 22, city: 'batman', id: '123');
   //User user2 = User('fadıl2', 15);
 
-  final users3 = User('aa', 159, age: 13);
+  final users3 = User('aa', 159, age: 13, id: '12');
   print(user1.name);
+  //print(users3._id);
 
   //Son gelen kişini citysine göre kampanya yapılacak eğer istanbul ise
 
@@ -58,6 +61,12 @@ void main() {
     if (users3.city == 'istanbul') {
       print('Tebrikler Kazandınız');
     }
+  }
+
+//Musteri idsi 12 olana indirim yap
+  if (users3.isSpecialUser('12')) {
+    users3.money -= 5;
+    print('indirim yapıldı. son fiyat ${users3.money}');
   }
 }
 
@@ -81,20 +90,14 @@ void controlCustomerAge(int value) {
   }
 }
 
-class User {
-  //Bu değişken sonradan değerini bulacak ve ekranda hayat bulacak
-  late final String name;
-  late final int money;
-  late final int? age;
-  late final String?
-      city; //Late final denildiği zaman kesinlikle constructor metdodda kullanılması lazım
-
+class User2 {
+  final String name;
+  final int money;
+  final int? age;
+  final String? city;
   late final String userCode;
-  User(String name, int money, {int? age, String? city}) {
-    this.name = name;
-    this.money = money;
-    this.age = age;
-    this.city = city;
+
+  User2(this.name, this.money, {this.age, this.city}) {
     userCode = (city ?? 'ist') + name;
   }
 }
