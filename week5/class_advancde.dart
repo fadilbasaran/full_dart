@@ -26,12 +26,12 @@ void main(List<String> args) {
   Bank moneyBank1 = Bank(234, '12');
   Bank moneyBank2 = Bank(123, '12');
 
-  print(moneyBank1 == moneyBank2);//Müşterilerin Idleri aynı ise aynı müşteri olmak zourunda
+  print(moneyBank1 ==
+      moneyBank2); //Müşterilerin Idleri aynı ise aynı müşteri olmak zourunda
 
   print(moneyBank1 + moneyBank2);
 
   print(moneyBank2.toString());
-
 
   if (money1 == money2) {
     print('oki');
@@ -58,7 +58,8 @@ class _User {
   }
 }
 
-class Bank {
+class Bank with BankMixin {
+  //Dahil etme birlikete kullanma
   final int money;
   final String id;
 
@@ -75,5 +76,17 @@ class Bank {
 
   bool operator ==(Object object) {
     return object is Bank && object.id == id;
+  }
+
+  @override
+  void saBankaHello() {
+    calculateMoney(money);
+  }
+}
+
+mixin BankMixin {//Birden çok senaryo varsa plihirmisiiim gibi yapılarda kullanılır.
+  void saBankaHello() {}
+  void calculateMoney(int money) {
+    print('money');
   }
 }
