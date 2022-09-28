@@ -53,6 +53,9 @@ void main() {
   var value = newUser2.money = null;
   print('User2 money: ' + value.toString());
 
+  print(newUser2.toString());//USer2 classından bir değer oluşturuludukğunu bize bildiriyor.
+//Bütün classların extends yani türediği sınıf Object sınıfıdır.
+
   print(user1.name);
   //print(users3._id);
 

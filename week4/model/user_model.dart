@@ -1,4 +1,4 @@
-class User {
+class User  extends Object{
   //Bu değişken sonradan değerini bulacak ve ekranda hayat bulacak
   late final String name;
   late int money; //finalı kaldırdık sonradandeğiştirebilir olması için
