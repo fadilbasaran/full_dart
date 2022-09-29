@@ -12,9 +12,9 @@ void main(List<String> args) {
     CarModel(
         category: CarModels.bmv,
         name: 'bmw x5',
-        money: 33,
+        money: 80,
         isSecondHand: false),
-    CarModel(category: CarModels.toyota, name: 'corola', money: 34),
+    CarModel(category: CarModels.toyota, name: 'corola', money: 30),
     CarModel(
         category: CarModels.honda,
         name: 'civic',
@@ -34,7 +34,7 @@ void main(List<String> args) {
   print('kaç tane ikinci el araba var : $resultCount');
 
   final newCar = CarModel(
-      category: CarModels.bmv, name: 'bmw x5', money: 33, isSecondHand: false);
+      category: CarModels.bmv, name: 'bmw x5', money: 80, isSecondHand: false);
 
   final isHaveCar = carItems.contains(newCar);
 
@@ -83,7 +83,7 @@ void main(List<String> args) {
   calculateToUser(List.of(carItems));
   carItems.remove(_mercedes);
   carItems.removeWhere((element) =>
-      element.category == CarModels.mercedes || element.money < 30);
+      element.category == CarModels.mercedes || element.money < 40);
 
   print(carItems);
 }
@@ -92,12 +92,11 @@ void calculateToUser(List<CarModel> items) {
   //İtemsları düzelt bmw olanaları yamahaya çevir
   final _items = [...items];
   final newItems = _items.map((CarModel e) {
-    if (e.category == CarModels.bmv) {
-      e.category = CarModels.yamaha;
-    }
-    if (e.isSecondHand) {
-      e.isSecondHand = false;
-    }
+    CarModel(
+        category: e.category == CarModels.bmv ? CarModels.yamaha : e.category,
+        name: e.name,
+        money: e.money,
+        isSecondHand: false);
     return e;
   }).toList();
   print(newItems);
