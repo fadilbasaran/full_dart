@@ -62,7 +62,8 @@ void main(List<String> args) {
   } finally {
     print('abibu işlem ağır oldu bir daha sorma $isHaveCarMercedes');
   }
-
+  final index = carItems.indexOf(newCar);
+  print(index);
 
 }
 //Benim arabalar ile ilgili bir sınıfım olacak
