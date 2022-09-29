@@ -45,6 +45,25 @@ void main(List<String> args) {
     return element.category == CarModels.bmv && element.money > 20;
   }).join(); //
   print(resultBmwMore20);
+
+  final carNames = carItems.map((e) => e.name).join(',');
+  print(carNames);
+
+  bool isHaveCarMercedes = false;
+
+  try {
+    final mercedesCar = carItems
+        .singleWhere((element) => element.category == CarModels.mercedes);
+    print(mercedesCar.name);
+    isHaveCarMercedes = true;
+  } catch (e) {
+    print('araba yok');
+    isHaveCarMercedes = false;
+  } finally {
+    print('abibu işlem ağır oldu bir daha sorma $isHaveCarMercedes');
+  }
+
+
 }
 //Benim arabalar ile ilgili bir sınıfım olacak
 //arabaların modeli, ismi, parasi kesin olacak,şehri olmayacak eger musteri soylemzse
@@ -55,6 +74,12 @@ void main(List<String> args) {
 //yeni bir araba geldi bu bide var mı gibi hissediyorum
 
 //Bana bmw olan ve moneysi 20den büyük  olanları söylermisin
+
+//Sadece isimleri yan yana gösterebilri misin
+
+//Benim elimde merecedes var mi
+
+// Yeni gelen araba kaçıncı sırada bunu söyleyebilir misin
 
 class CarModel {
   final CarModels category;
@@ -91,6 +116,11 @@ class CarModel {
         city.hashCode ^
         isSecondHand.hashCode;
   }
+
+  @override
+  String toString() {
+    return '$name - $money';
+  }
 }
 
-enum CarModels { bmv, yamaha, honda, wolsvagen, toyota }
+enum CarModels { bmv, yamaha, honda, wolsvagen, toyota, mercedes }
