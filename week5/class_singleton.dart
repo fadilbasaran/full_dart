@@ -1,3 +1,5 @@
+import 'model/product_config_model.dart';
+
 void main() {
   // Bir sınıf ama her yerden erişlebilir yani ortak bir sınıf olarakta düşünebiliriz.
 
@@ -14,9 +16,14 @@ void main() {
 
   final user1 = User('fadıl', 'aa');
 
+  // ignore: unused_local_variable
   final newProduct2 = Product(user1.product);
-  final newProduct3 =Product.fromUser(user1);
-  
+  // ignore: unused_local_variable
+  final newProduct3 = Product.fromUser(user1);
+
+  //apikey nedir diye bir soru yöneltildiğinde
+
+  ProductConfig.instance.apiKey;
 }
 
 void calculateMoney(int money) {
@@ -37,8 +44,9 @@ class Product {
   Product(this.name);
   Product.fadil([this.name = 'fadil']);
 
-   factory Product.fromUser(User user) {
-    return Product(user.name);//Üretim tesisi gibi birşey nerden geleceğini ve nereye gidileceğini yapılıyor
+  factory Product.fromUser(User user) {
+    return Product(user
+        .name); //Üretim tesisi gibi birşey nerden geleceğini ve nereye gidileceğini yapılıyor
   }
 
   static int? money = 10;
