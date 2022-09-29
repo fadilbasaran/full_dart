@@ -24,6 +24,8 @@ void main() {
   //apikey nedir diye bir soru yöneltildiğinde
 
   ProductConfig.instance.apiKey;
+
+  ProDuctLazySingleton.instace;//kullanıldığında oluşturuluyor.
 }
 
 void calculateMoney(int money) {
