@@ -15,3 +15,4 @@ class  ProDuctLazySingleton{//Tetiklendiği zaman doluyor ve ekranda gösteriliy
         }
         ProDuctLazySingleton._init();
 			}
+      

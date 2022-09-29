@@ -1,4 +1,7 @@
+import 'class_singleton.dart';
+
 void main(List<String> args) {
+  // ignore: unused_local_variable
   final model = CarModel(
       category: CarModels.bmv,
       name: 'bmw x5',
@@ -65,6 +68,39 @@ void main(List<String> args) {
   final index = carItems.indexOf(newCar);
   print(index);
 
+  final _mercedes =
+      CarModel(category: CarModels.mercedes, name: 'komperasor', money: 36);
+
+  carItems.add(_mercedes);
+
+  carItems.sort((first, second) => second.money
+      .compareTo(first.money)); //Kendi karşılaitırma ifademizi kendimiz yazdık.
+  print(carItems.reversed); //Küçükten büyüğe
+
+  // ignore: unused_local_variable
+  final users =
+      carItems.expand((element) => element.users).toList(); /*not düşüldü */
+  calculateToUser(List.of(carItems));
+  carItems.remove(_mercedes);
+  carItems.removeWhere((element) =>
+      element.category == CarModels.mercedes || element.money < 30);
+
+  print(carItems);
+}
+
+void calculateToUser(List<CarModel> items) {
+  //İtemsları düzelt bmw olanaları yamahaya çevir
+  final _items = [...items];
+  final newItems = _items.map((CarModel e) {
+    if (e.category == CarModels.bmv) {
+      e.category = CarModels.yamaha;
+    }
+    if (e.isSecondHand) {
+      e.isSecondHand = false;
+    }
+    return e;
+  }).toList();
+  print(newItems);
 }
 //Benim arabalar ile ilgili bir sınıfım olacak
 //arabaların modeli, ismi, parasi kesin olacak,şehri olmayacak eger musteri soylemzse
@@ -81,21 +117,26 @@ void main(List<String> args) {
 //Benim elimde merecedes var mi
 
 // Yeni gelen araba kaçıncı sırada bunu söyleyebilir misin
+//Ya ben yeni araba aldım mercedes ekler misin
 
+// Bana arabalarımı küçükten büyğe doğru sıralar mısın
+
+//Ben bütün arabalarımı Usere Cevirceğim
+// En son ekleneni silelim ve bmw ve 30dan küçük olanları silelim
 class CarModel {
-  final CarModels category;
+  CarModels category;
   final String name;
   final double money;
   String? city;
-
+  List<User> users;
   bool isSecondHand;
-  CarModel({
-    required this.category,
-    required this.name,
-    required this.money,
-    this.city,
-    this.isSecondHand = true, //eğer verilmese true olarak işaretlenecek
-  });
+  CarModel(
+      {required this.category,
+      required this.name,
+      required this.money,
+      this.city,
+      this.isSecondHand = true, //eğer verilmese true olarak işaretlenecek
+      this.users = const []});
 
   @override
   bool operator ==(Object other) {
