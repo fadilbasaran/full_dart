@@ -9,19 +9,31 @@ Future<void> main(List<String> args) async {
 
   //5 sanit-ye bekle sonra gel hicbir musteri alma
 
-  print('hello');
+  // print('hello');
 
-  Future.delayed(Duration(seconds: 3)).whenComplete(() {
-    print('hello2');
-  });
-  print('hello3');
+  // Future.delayed(Duration(seconds: 3)).whenComplete(() {
+  //   print('hello2');
+  // });
+  // print('hello3');
 
-  Future.delayed(Duration(seconds: 2)).whenComplete(() {
-  print('hello4');
+  // Future.delayed(Duration(seconds: 2)).whenComplete(() {
+  // print('hello4');
 
-  });
+  // });
+  Stream<int> bankMoney = Stream.empty();
 }
 
+Stream<int> dataAddBankMoney(int retryCount, int money) {
+  int _retryCount=0;
+
+  while (_retryCount < retryCount) {
+
+
+    _retryCount++;
+
+    yield money+=5;
+  }
+}
 
 
 
