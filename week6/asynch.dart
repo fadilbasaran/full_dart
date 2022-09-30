@@ -37,7 +37,7 @@ Stream<int> dataAddBankMoney(int retryCount, int money) async* {
     _retryCount++;
 
     yield money += 5;
-  }
+P  }
 }
 
 
